@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 
+gem 'faker'
+
 gem 'bootstrap-sass'
 
 gem 'devise'
@@ -24,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 
