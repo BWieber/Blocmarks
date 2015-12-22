@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :topics
 
+  post :incoming, to: 'incoming#create'
+
   get 'welcome/index'
 
   get 'welcome/about'

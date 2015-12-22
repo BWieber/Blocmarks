@@ -36,13 +36,8 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email).to_not be_valid
     end
 
-    it "should be an invalid user due to an incorrectly formated email address" do 
+    it "should be an invalid user due to an incorrectly formated email address" do
       expect(user_with_invalid_email_format).to_not be_valid
     end
-
   end
-
-
-
-
-  end
+end

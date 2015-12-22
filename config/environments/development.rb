@@ -13,6 +13,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:              587,
+    address:           'smtp.mailgun.org',
+    user_name:         ENV['MAILGUN_SMTP_LOGIN'],
+    password:          ENV['MAILGUN_SMTP_PASSWORD'],
+    domain:            'bwieber-blocmarks.herokuapp.com',
+    authentication:    :plain,
+    content_type:      'text/html'
+  }
+
   # Default URL for action_mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
