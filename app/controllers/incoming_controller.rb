@@ -10,14 +10,17 @@ class IncomingController < ApplicationController
 
     if @user.nil?
       @user = User.create(email: params[:sender], password: 'blocmarks2015')
+      @user.save!
     end
 
     if @topic.nil?
       @topic = Topic.create(title: params[:title], user_id: @user)
+      @topic.save!
     end
 
     @bookmark.create(url: @url)
     @bookmark.update_attributes(topic_id: @topic.id)
+    @bookmark.save!
 
     head 200
   end
