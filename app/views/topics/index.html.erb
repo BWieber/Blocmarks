@@ -6,10 +6,10 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-             <%= link_to "#{topic.title}", topic %>
+             <%= link_to topic.title, topic %>
              <div class="bookmark_box">
               <% topic.bookmarks.each do |bookmark| %>
-              <%= "#{bookmark.url}" %>
+              <%= bookmark.url %>
               <% end %>
 
              </div>
