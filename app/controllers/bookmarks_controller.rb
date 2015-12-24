@@ -50,7 +50,7 @@ class BookmarksController < ApplicationController
        render :show
      end
    end
-   
+
    private
 
    def bookmark_params

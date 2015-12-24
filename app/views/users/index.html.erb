@@ -1,0 +1,9 @@
+<h1> Users </h1>
+
+  <% @users.each do |user| %>
+    <div class="media">
+      <div class="media-heading">
+        <%= user.email %>
+      </div>
+    </div>
+  <% end %>
