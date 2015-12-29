@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { create(:user) }
+  let(:user) { User.create!(username: "Blocmarks User", email: "user@blocmarks.com", password: "helloworld") }
 
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
@@ -11,6 +11,8 @@ RSpec.describe User, type: :model do
 
   it { should validate_presence_of(:password) }
   it { should validate_length_of(:password).is_at_least(8) }
+
+  it { should have_many(:likes) }
 
   describe "attributes" do
 
@@ -38,6 +40,24 @@ RSpec.describe User, type: :model do
 
     it "should be an invalid user due to an incorrectly formated email address" do
       expect(user_with_invalid_email_format).to_not be_valid
+    end
+  end
+
+  describe "#like_for(bookmark)" do
+    before do
+      topic = create(:topic)
+      @bookmark = topic.bookmarks.create(url: 'www.example.com')
+    end
+
+
+    it "returns `nil` if the user has not liked the bookmark" do
+      expect(user.liked(@bookmark)).to be_nil
+    end
+
+    it "returns the appropriate like if it exists" do
+      like = user.likes.where(bookmark: @bookmark).create
+
+      expect(user.liked(@bookmark)).to eq(like)
     end
   end
 end
