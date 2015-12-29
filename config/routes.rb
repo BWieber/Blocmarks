@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :topics do
+    resources :bookmarks
+  end
+
   resources :bookmarks, except: [:index]
 
-  resources :topics
-
-  resources :users, only: [:index, :show]
+  resources :users, only: [:new, :index, :show]
 
   post :incoming, to: 'incoming#create'
 
