@@ -31,7 +31,7 @@ class BookmarksController < ApplicationController
 
       if @bookmark.save
         flash[:notice] = "Bookmark was saved."
-        redirect_to topics_path
+        redirect_to @topic
       else
         flash[:error] = "There was an error saving the bookmark. Please try again."
         render :new
@@ -46,7 +46,7 @@ class BookmarksController < ApplicationController
 
      if @bookmark.save
        flash[:notice] = "Bookmark was updated."
-       redirect_to topics_path
+       redirect_to topic_path
      else
        flash[:error] = "There was an error saving this bookmark. Please try again."
        render :edit
