@@ -1,6 +1,7 @@
 
 5.times do
   user = User.create!(
+    username:     Faker::Name.first_name,
     email:        Faker::Internet.email,
     password:     Faker::Internet.password,
     confirmed_at: Time.now
@@ -17,11 +18,11 @@ end
 topics = Topic.all
 
 
-# Create posts
+# Create bookmarks
 20.times do
-
-post = Bookmark.create!(
+  Bookmark.create!(
     topic: topics.sample,
+    user:  users.sample,
     url:   Faker::Internet.url
   )
 end
@@ -29,16 +30,18 @@ bookmarks = Bookmark.all
 
 # Create an admin user
 admin = User.create!(
-email:    'admin@example.com',
-password: 'helloworld',
-confirmed_at: Time.now,
+    username: 'Admin',
+    email:    'admin@example.com',
+    password: 'helloworld',
+    confirmed_at: Time.now,
 )
 
 usul = User.create!(
-email:    'usul@arrakis.com',
-password: 'helloworld',
-confirmed_at: Time.now,
-)
+    username: 'Usul',
+    email:    'usul@arrakis.com',
+    password: 'helloworld',
+    confirmed_at: Time.now,
+    )
 
 
 puts "Seed finished"

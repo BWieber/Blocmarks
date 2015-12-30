@@ -3,7 +3,7 @@
   <% @users.each do |user| %>
     <div class="media">
       <div class="media-heading">
-        <%= user.email %>
+        <%= link_to user.email, user %>
       </div>
     </div>
   <% end %>
