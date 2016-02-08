@@ -9,7 +9,7 @@ class IncomingController < ApplicationController
     @url = params["body-plain"]
 
     if @user.nil?
-      @user = User.create(email: params[:sender], password: 'blocmarks2015')
+      @user = User.create(email: params[:sender], password: 'blocmarks2016')
     end
 
     if @topic.nil?
