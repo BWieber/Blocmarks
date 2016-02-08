@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
   let(:user) { create(:user) }
 
   it { should validate_presence_of(:email) }
-  it { should validate_uniqueness_of(:email) }
   it { should allow_value("user@bloccit.com").for(:email) }
   it { should_not allow_value("userbloccit").for(:email) }
 
