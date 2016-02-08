@@ -22,10 +22,8 @@ Rails.application.configure do
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
-
-  config.action_mailer.delivery_method = :test
-  # Default URL for action_mailer
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port:              587,
     address:           'smtp.mailgun.org',
@@ -35,6 +33,9 @@ Rails.application.configure do
     authentication:    :plain,
     content_type:      'text/html'
   }
+  # Default URL for action_mailer
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
