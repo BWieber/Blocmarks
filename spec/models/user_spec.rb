@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { User.create!(username: "Blocmarks User", email: "user@blocmarks.com", password: "helloworld") }
+  let(:user) { create(:user) }
 
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
