@@ -30,10 +30,6 @@ RSpec.describe User, type: :model do
     let(:user_with_invalid_email)         { build(:user, email: "") }
     let(:user_with_invalid_email_format)  { build(:user, email: "invalid_format") }
 
-    # it "should be an invalid user due to an blank name" do
-    #   expect(user_with_invalid_name).to_not be_valid
-    # end
-
     it "should be invalid user due to a blank email" do
       expect(user_with_invalid_email).to_not be_valid
     end

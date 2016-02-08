@@ -26,6 +26,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   # Default URL for action_mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.smtp_settings = {
+    port:              587,
+    address:           'smtp.mailgun.org',
+    user_name:         ENV['MAILGUN_SMTP_LOGIN'],
+    password:          ENV['MAILGUN_SMTP_PASSWORD'],
+    domain:            'bwieber-blocmarks.herokuapp.com',
+    authentication:    :plain,
+    content_type:      'text/html'
+  }
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
