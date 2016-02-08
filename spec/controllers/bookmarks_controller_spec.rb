@@ -4,7 +4,11 @@ RSpec.describe BookmarksController, type: :controller do
 
   let(:my_topic)    { create(:topic) }
   let(:my_user)     { create(:user) }
-  let(:my_bookmark) { create(:bookmark, topic: my_topic) }
+  let(:my_bookmark) { create(:bookmark, topic: my_topic, user: my_user) }
+
+  before(:each) do
+    sign_in my_user
+  end
 
   describe "GET #show" do
     it "returns http success" do
@@ -52,12 +56,12 @@ RSpec.describe BookmarksController, type: :controller do
 
     it "redirects the new bookmark to Topics index" do
       post :create, topic_id: my_topic.id, bookmark: { url: Faker::Internet.url }
-      expect(response).to redirect_to topics_path
+      expect(response).to redirect_to topic_path(my_topic)
     end
   end
 
   describe "GET #edit" do
-    it "returns http success" do
+    it "returns http status success" do
       get :edit, topic_id: my_topic.id, id: my_bookmark.id
       expect(response).to have_http_status(:success)
     end
@@ -91,7 +95,7 @@ RSpec.describe BookmarksController, type: :controller do
       new_url = Faker::Internet.url
 
       put :update, topic_id: my_topic.id, id: my_bookmark.id, bookmark: { url: new_url }
-      expect(response).to redirect_to topics_path
+      expect(response).to redirect_to topic_path(my_topic)
     end
   end
 

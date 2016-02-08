@@ -4,7 +4,7 @@ FactoryGirl.define do
 
   factory :user do
     username Faker::Name.first_name
-    email Faker::Internet.email
+    sequence(:email){|n| "user#{n}@factory.com" }
     password pw
     password_confirmation pw
     confirmed_at Time.now
