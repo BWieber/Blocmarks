@@ -13,7 +13,7 @@ RSpec.describe LikesController, type: :controller do
 
      it 'redirects to the bookmarks show view' do
        post :create, { bookmark_id: my_bookmark.id }
-       expect(response).to redirect_to(my_bookmark)
+       expect(response).to redirect_to(my_topic)
      end
 
      it 'creates a like for the current user and specified bookmark' do
