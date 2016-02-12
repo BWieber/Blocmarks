@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
+  get 'welcome/how'
+
   root 'welcome#index'
 
 end

@@ -1,2 +1,51 @@
+
 <h1> Blocmarks </h1>
-<p> A social bookmarking app that allows users to email, manage and share bookmarked URLs. </p>
+
+<p> Blocmarks is a social bookmarking app that allows users to email, manage and share bookmarked URLs. Using the mailgun API, users can send an email to a specific address to have a data be created and categorized. </p>
+
+<p> The app is deployed on Heroku: <a href='https://bwieber-blocmarks.herokuapp.com'>Blocmarks</a> </p>
+
+<p> The source code is here on GitHub: <a href='https://github.com/BWieber/Blocmarks'>GitHub Repo</a> </p>
+
+<p> This app was created as part of the <a href='www.bloc.io'>Bloc</a> Full Stack Web Development course. </p>
+
+<h1> Features </h1>
+
+<li> Users can create a standard account in order to create, edit, and collaborate on public topics which have a list of bookmarks. Anyone can add a bookmark to a particular topic.</li>
+<li> Users can email Blocmarks to create topics and bookmarks via postmaster@app088d023c61fd4c2eaf20a535e1147a4e.mailgun.org. Blocmarks will parse the data in the email. If you are not yet a user, Blocmarks will create a new user with a default password of 'blocmarks2016'. Blocmarks will search your subject to determine the topic title and the email body for the bookmark url. If no topic exists, it will create one. If the topic does exist it will add the new url to that topic. </li>
+<li> Users can like bookmarks, with a list of their created and liked bookmarks on their user profile page. </li>
+
+
+<h1> Setup and Configuration </h1>
+
+<strong>Languages and Frameworks</strong>: Ruby on Rails and Bootstrap
+<br>
+<br>
+<strong>Ruby version 2.2.1</strong>
+<br>
+<br>
+<strong>Databases</strong>: SQLite (Test, Development), PostgreSQL (Production)
+<br>
+<br>
+<strong>Development Tools and Gems include</strong>:
+
+<li> Devise for user authentication </li>
+<li> Mailgun for email confirmation and API </li>
+<li> Pundit for authorization </li>
+<li> Faker and Factory Girl for test suite success </li>
+
+<br>
+<strong>Setup:</strong>
+
+<li> Environment variables were set using Figaro and are stored in config/application.yml (ignored by git). </li>
+
+<li> The config/application.example.yml file illustrates how environment variables should be stored. </li>
+
+<br>
+<strong>To run Blocmarks locally:</strong>
+
+<li> Clone the repository </li>
+<li> Run bundle install </li>
+<li> Create and migrate the SQLite database with `rake db:create` and `rake db:migrate` </li>
+<li> Start the server using `rails server` </li>
+<li> Run the app on `localhost:3000` </li>
