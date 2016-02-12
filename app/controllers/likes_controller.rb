@@ -10,10 +10,10 @@ class LikesController < ApplicationController
 
     if like.save
       flash[:notice] = "Bookmark Liked!"
-      redirect_to @bookmark
+      redirect_to @topic
     else
       flash[:alert] = "There was an error liking this bookmark. Please try again."
-      redirect_to @bookmark
+      redirect_to @topic
     end
   end
 
